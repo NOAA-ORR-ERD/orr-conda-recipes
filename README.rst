@@ -4,7 +4,7 @@ orr-conda-recipes
 
 Recipes for building conda packages for many (all?) of the third party packages required by ORR tools -- specifically GNOME
 
-This repo should give you all you need to build conda pacakges for various third party tools needed by py_gnome. IN theoery, these will be built by ORR developers, and provided on binstar in the NOAA-ORR-ERD channel. But you you want to build yourself, this is how to do it.
+This repo should give you all you need to build conda packages for various third party tools needed by py_gnome. In theory, these will be built by ORR developers, and provided on binstar in the NOAA-ORR-ERD channel. But if you want to build them yourself, this is how to do it.
 
 Getting set up
 ###############
@@ -12,34 +12,33 @@ Getting set up
 requirements
 ----------------
 
-To build packges, you'll need the basic stuff for building and working with binstar::
+To build packges, you'll need the basic stuff for building and working with anaconda.org::
 
   conda install conda-build
-  conda install binstar
+  conda install anaconda-client
 
 Then you'll want to add the NOAA-ORR-ERD channel::
 
   conda config --add channels NOAA-ORR-ERD
 
-Ideally, you won't have any other binstar channels set up -- or conda my find packages in other channels than the NOAA-ORR-ERD one. You can remove a channel with::
+Ideally, you won't have any other anaconda channels set up -- or conda my find packages in other channels than the NOAA-ORR-ERD one. You can remove a channel with::
 
   conda config --remove channels ChrisBarker-NOAA -f
 
-[You can also smply the the ``~/.condarc`` file, which will clean out all config, and then start again]
+[You can also simply edit the ``~/.condarc`` file, which will clean out all config, and then start again]
 
-Note that conda build can only be run in the main root environment, so you may want to setup a new miniconda environment to get a really clean system.
+Note that conda build can only be run in the main root environment, so you may want to setup a new miniconda install to get a really clean system.
 
-Setting up binstar
--------------------
+Setting up anaconda.org
+-----------------------
 
 You may want to have conda automatically upload newly built packages:
 
-   conda config --set binstar_upload yes
+   conda config --set anaconda_upload True
 
-It can be helpful to login to your binstar account before bulding / uploading packages::
+It can be helpful to login to your anaconda account before bulding / uploading packages::
 
-  binstar login
-
+  anaconda login
 
 
 Obvious-CI
@@ -47,7 +46,9 @@ Obvious-CI
 
 To build all the packages, you can use Phil Elson's lovely obvious-ci scripts:
 
-Obvious-CIis a collection of tools that help with continuous integration like travis-ci (https://travis-ci.org/ioos/conda-recipes/builds) and AppVeyor (https://ci.appveyor.com/project/comtbot/conda-recipes/history). But is also helpful for simply  building on your local machine.
+Obvious-CI is a collection of tools that help with continuous integration like travis-ci (https://travis-ci.org/ioos/conda-recipes/builds) and AppVeyor (https://ci.appveyor.com/project/comtbot/conda-recipes/history).
+
+But is also helpful for simply  building on your local machine.
 
 https://github.com/pelson/Obvious-CI
 
@@ -65,7 +66,7 @@ And then you may need to upload it to the NOAA-ORR-ERD channel::
 
 Using Obvious-CI, the single script `obvci_conda_build_dir.py` can build all binaries in this repository, ordered by their dependency.  Note that `obvci_conda_build_dir.py` reads the packages that are already on the channels and does not build if they are the same.
 
-Here's how to get the script working on your system:: 
+Here's how to get the script working on your system::
 
   conda config --add channels NOAA-ORR-ERD -f
 

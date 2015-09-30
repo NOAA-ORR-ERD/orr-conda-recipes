@@ -1,6 +1,6 @@
 package:
     name: obvious-ci
-    version: '0.3.dev'
+    version: '0.4.0.dev1'
 
 source:
     git_url: https://github.com/pelson/Obvious-CI.git
@@ -14,7 +14,7 @@ requirements:
     run:
         - python
         - setuptools
-        - binstar
+        - anaconda-client
         - conda
         - conda-build
 
