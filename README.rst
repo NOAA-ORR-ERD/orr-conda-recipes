@@ -83,3 +83,20 @@ If you are a NOAA-ORR-ERD binstar admin, or you are building for your own person
     TOKEN=$(binstar auth -n NAME-OF-YOUR-TOKEN --max-age 22896000 -c --scopes api)
     export BINSTAR_TOKEN=$TOKEN
 
+If you are going to do this more than once, you may want to set that token in your shell inti script -- i.e. ~/.bash_profile::
+
+  BINSTAR_TOKEN=Ch-3grt7fher23-de39-4382-9er0-c3138fj3686
+
+And no, that is not a real token ;-) -- you need to put the one you generate in there. YOu can use::
+
+    echo $TOKEN
+
+to get it.
+
+
+
+
+
+
+
+
