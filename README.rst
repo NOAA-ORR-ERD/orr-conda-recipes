@@ -74,21 +74,26 @@ Here's how to get the script working on your system::
 
   git clone https://github.com/NOAA-ORR-ERD/orr-conda-recipes.git
 
-  obvci_conda_build_dir.py ./orr-conda-recipes NOAA-ORR-ERD --channel main
+  obvci_conda_build_dir ./orr-conda-recipes NOAA-ORR-ERD --channel main
 
+  obvci_conda_build_dir ./orr-conda-recipes NOAA-ORR-ERD --channel main --build-condition "python >=2.7,<3"
 
 The last command will build everything in the git repo against the `NOAA-ORR-ERD` channel.
 
-If you are a NOAA-ORR-ERD binstar admin, or you are building for your own personal repository, you may want to upload the packages as you build.  The `obvci_conda_build_dir.py` script will do that for you if you set a `BINSTAR_TOKEN`::
+Note that the "python >=2.7,<3" part means only python2.7 -- otehrwise, it will try to build for a whole  matrix of python versions -- 2.6 to 3.5. Which is pretty cool, but we're only trying to support 2.7 now.
 
-    TOKEN=$(binstar auth -n NAME-OF-YOUR-TOKEN --max-age 22896000 -c --scopes api)
+If you are a NOAA-ORR-ERD anaconda.org admin, or you are building for your own personal repository, you may want to upload the packages as you build. The `obvci_conda_build_dir` script will do that for you if you set a `BINSTAR_TOKEN`::
+
+    TOKEN=$(anaconda auth -n NAME-OF-YOUR-TOKEN --max-age 22896000 -c --scopes api)
     export BINSTAR_TOKEN=$TOKEN
 
-If you are going to do this more than once, you may want to set that token in your shell inti script -- i.e. ~/.bash_profile::
+## note: this may now be called a ANACONDA_TOKEN, but this worked last I tried
+
+If you are going to do this more than once, you may want to set that token in your shell init script -- i.e. ~/.bash_profile::
 
   BINSTAR_TOKEN=Ch-3grt7fher23-de39-4382-9er0-c3138fj3686
 
-And no, that is not a real token ;-) -- you need to put the one you generate in there. YOu can use::
+And no, that is not a real token ;-) -- you need to put the one you generate in there. You can use::
 
     echo $TOKEN
 
