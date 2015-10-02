@@ -46,17 +46,20 @@ Obvious-CI
 
 To build all the packages, you can use Phil Elson's lovely obvious-ci scripts:
 
-Obvious-CI is a collection of tools that help with continuous integration like travis-ci (https://travis-ci.org/ioos/conda-recipes/builds) and AppVeyor (https://ci.appveyor.com/project/comtbot/conda-recipes/history).
+  Obvious-CI is a collection of tools that help with continuous integration like travis-ci (https://travis-ci.org/ioos/conda-recipes/builds) and AppVeyor (https://ci.appveyor.com/project/comtbot/conda-recipes/history).
 
 But is also helpful for simply  building on your local machine.
 
 https://github.com/pelson/Obvious-CI
 
-First you will need to install obvious-ci itself::
+Installing Obvious-CI
+.....................
 
-  conda install obvious-ci
+First you will need to install obvious-ci itself. You can get it from Phil Elson's channel on anaconda.org::
 
-or, if you are doing this totally from scratch, you can built it yourself::
+  $ conda install -c pelson obvious-ci
+
+or you can built it yourself from the recipe in orr-conda-packages
 
   conda build obvious-ci
 
@@ -66,15 +69,20 @@ And then you may need to upload it to the NOAA-ORR-ERD channel::
 
 Using Obvious-CI, the single script `obvci_conda_build_dir.py` can build all binaries in this repository, ordered by their dependency.  Note that `obvci_conda_build_dir.py` reads the packages that are already on the channels and does not build if they are the same.
 
-Here's how to get the script working on your system::
+Using Obvious-CI
+.................
+
+Here's how to get the script working on your system:
+
+Make sure you have the NOAA-ORR-ERD channel set up::
 
   conda config --add channels NOAA-ORR-ERD -f
 
-  conda install obvious-ci
+Clone the orr-conda-recipes repo, if you haven't already::
 
   git clone https://github.com/NOAA-ORR-ERD/orr-conda-recipes.git
 
-  obvci_conda_build_dir ./orr-conda-recipes NOAA-ORR-ERD --channel main
+Use obvious-ci to build everything::
 
   obvci_conda_build_dir ./orr-conda-recipes NOAA-ORR-ERD --channel main --build-condition "python >=2.7,<3"
 
