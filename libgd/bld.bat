@@ -1,9 +1,17 @@
 REM Build script for Windows
 
-REM Build step
+REM set up the compiler (Visual Studio for Python2.7)
+REM IF this doesn't work -- run this from the Visual Studio 64 command prompt
+call "%HOMEPATH%\AppData\Local\Programs\Common\Microsoft\Visual C++ for Python\9.0\vcvarsall.bat" amd64
 
+echo current working dir is:
+echo %cd%
+
+REM Build the lib...
 nmake /f %RECIPE_DIR%\Makefile.vc build_libs
 if errorlevel 1 exit 1
+
+REM: done compiling
 
 REM Install step
 copy %PREFIX%\libgd.dll %LIBRARY_BIN%\
