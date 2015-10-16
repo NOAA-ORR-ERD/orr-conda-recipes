@@ -67,7 +67,7 @@ And then you may need to upload it to the NOAA-ORR-ERD channel::
 
 Or you could build and install from the gitHub repo.
 
-Using Obvious-CI, the single script `obvci_conda_build_dir.py` can build all binaries in this repository, ordered by their dependency.  Note that `obvci_conda_build_dir.py` reads the packages that are already on the channels and does not build if they are the same.
+Using Obvious-CI, the single script `obvci_conda_build_dir.py` can build all binaries in this repository, ordered by their dependency.  Note that `obvci_conda_build_dir.py` reads the packages that are already on the channels and does not build if they are the same. Note that with recent version, it will try to build a full matrix of versions (py2 and 3, different numpy versions..), so you probably want to pass in arguments to restrict that -- see below.
 
 Using Obvious-CI
 .................
