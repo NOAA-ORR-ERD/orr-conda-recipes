@@ -2,9 +2,12 @@ package:
   name: py_gd
   version: "0.1.2"
 
+build:
+  number: 1
+
 source:
     git_url: https://github.com/NOAA-ORR-ERD/py_gd.git
-    git_tag: master
+    git_tag: v0.1.2
 
 requirements:
   build:
