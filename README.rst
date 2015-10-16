@@ -32,10 +32,6 @@ Note that conda build can only be run in the main root environment, so you may w
 Setting up anaconda.org
 -----------------------
 
-You may want to have conda automatically upload newly built packages:
-
-   conda config --set anaconda_upload True
-
 It can be helpful to login to your anaconda account before bulding / uploading packages::
 
   anaconda login
@@ -55,19 +51,23 @@ https://github.com/pelson/Obvious-CI
 Installing Obvious-CI
 .....................
 
-First you will need to install obvious-ci itself. You can get it from Phil Elson's channel on anaconda.org::
+First you will need to install obvious-ci itself.
 
-  $ conda install -c pelson obvious-ci
+It should be in the onoaa-orr-erd channel already::
 
-or you can built it yourself from the recipe in orr-conda-packages
+  conda install obvious-ci
+
+If not, you can build it yourself from the recipe in orr-conda-packages
 
   conda build obvious-ci
 
 And then you may need to upload it to the NOAA-ORR-ERD channel::
 
-  binstar upload --user noaa-orr-erd THE_FULL_PATH_TO_THE_TARBALL_CONDA_BUILD_REPORTS
+  anaconda upload --user noaa-orr-erd THE_FULL_PATH_TO_THE_TARBALL_CONDA_BUILD_REPORTS
 
-Using Obvious-CI, the single script `obvci_conda_build_dir.py` can build all binaries in this repository, ordered by their dependency.  Note that `obvci_conda_build_dir.py` reads the packages that are already on the channels and does not build if they are the same.
+Or you could build and install from the gitHub repo.
+
+Using Obvious-CI, the single script `obvci_conda_build_dir.py` can build all binaries in this repository, ordered by their dependency.  Note that `obvci_conda_build_dir.py` reads the packages that are already on the channels and does not build if they are the same. Note that with recent version, it will try to build a full matrix of versions (py2 and 3, different numpy versions..), so you probably want to pass in arguments to restrict that -- see below.
 
 Using Obvious-CI
 .................
@@ -107,6 +107,14 @@ And no, that is not a real token ;-) -- you need to put the one you generate in 
 
 to get it.
 
+Building / Uploading one by one
+................................
+
+If you have just one package to add, it may be easier to simply build and upload that one package by hand::
+
+  $ conda build the_package
+  $ anaconda upload --user noaa-orr-erd THE_FULL_PATH_TO_THE_TARBALL_CONDA_BUILD_REPORTS
+  
 
 
 

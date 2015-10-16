@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$PYTHON setup.py install
+$PYTHON -m pip install ./
 
 # Add more build steps here, if they are necessary.
 
