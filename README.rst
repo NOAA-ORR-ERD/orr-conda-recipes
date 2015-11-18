@@ -84,7 +84,9 @@ Clone the orr-conda-recipes repo, if you haven't already::
 
 Use obvious-ci to build everything::
 
-  obvci_conda_build_dir ./orr-conda-recipes NOAA-ORR-ERD --channel main --build-condition "python >=2.7,<3"
+  obvci_conda_build_dir ./ NOAA-ORR-ERD --channel main --build-condition "python >=2.7,<3"
+
+(run from the orr-conda-recipes dir)
 
 The last command will build everything in the git repo against the `NOAA-ORR-ERD` channel.
 

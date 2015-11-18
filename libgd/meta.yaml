@@ -6,13 +6,14 @@ build:
   number: 3
 
 source:
-  git_url: https://github.com/libgd/libgd # [win]
-  git_branch: GD-2.1
   # NOTE: the source tarball has a minor bug (double ;;) that the Windows compiler
-  #       chokes on -- hence pulling from git
+  #       chokes on -- hence pulling from git on Windows
+  git_url: https://github.com/libgd/libgd # [win]
+  git_branch: GD-2.1 # [win]
 
-  fn: libgd-2.1.2.tar.gz # [not win]
-  url: https://bitbucket.org/libgd/gd-libgd/downloads/libgd-2.1.2.tar.gz # [not win]
+  # on OS-X and Linux (presumably) you want the distributed tarball
+  fn: libgd-2.1.1.tar.gz # [not win]
+  url: https://bitbucket.org/libgd/gd-libgd/downloads/libgd-2.1.1.tar.gz # [not win]
   # NOTE: the tarball on github does not have a configure script
   #       if you install all the autotools deps, it should work
   #       with the "bootstrap.sh" script, but this source version
@@ -34,10 +35,12 @@ requirements:
     - jpeg
     - freetype
     - zlib
-    
+    - libtiff
 
   run:
     - libpng
     - jpeg
     - freetype
     - zlib
+    - libtiff
+
