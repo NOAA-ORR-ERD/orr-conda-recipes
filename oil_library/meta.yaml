@@ -1,0 +1,37 @@
+package:
+    name: oil_library
+    version: 0.0.1a
+
+source:
+    git_url: https://srccontrol.orr.noaa.gov/gnome/pygnome.git
+    git_tag: 0.0.1a
+
+requirements:
+    build:
+        - python
+        - numpy
+        - setuptools
+        - sqlalchemy
+        - transaction
+        - zope.sqlalchemy
+        - awesome-slugify
+        - unit_conversion
+        - pytest
+    run:
+        - numpy
+        - python
+        - sqlalchemy
+        - transaction
+        - zope.sqlalchemy
+        - awesome-slugify
+        - pytest
+        - unit_conversion
+        - repoze.lru
+
+test:
+    imports:
+        - oil_library
+
+about:
+    home: https://github.com/NOAA-ORR-ERD/PyGnome
+    license: Public Domain
