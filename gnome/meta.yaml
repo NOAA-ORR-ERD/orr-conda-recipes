@@ -1,0 +1,47 @@
+package:
+    name: gnome
+    version: 0.0.1a
+
+build:
+    number: 1
+
+source:
+    git_url: https://srccontrol.orr.noaa.gov/gnome/pygnome.git
+    git_tag: 0.0.1a
+
+requirements:
+    build:
+        - python
+        - setuptools
+        - numpy
+        - netcdf4
+        - cython
+        - py_gd
+    run:
+        - matplotlib
+        - python
+        - pytest
+        - scipy
+        - numpy
+        - netcdf4
+        - colander
+        - pil
+        - pyzmq
+        - repoze.lru
+        - six
+        - geojson
+        - gdal
+        - scipy
+        - unit_conversion
+        - py_gd
+        - oil_library
+        - gsw
+        - psutil
+
+test:
+    imports:
+        - gnome
+
+about:
+    home: https://github.com/NOAA-ORR-ERD/PyGnome
+    license: Public Domain
