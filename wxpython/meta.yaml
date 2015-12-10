@@ -12,6 +12,8 @@ build:
   script: $RECIPE_DIR/build_osx.sh #[osx]
   script: $RECIPE_DIR/build.sh #[linux]
 
+  skip: True  # [win]
+
 requirements:
   build:
     - python
