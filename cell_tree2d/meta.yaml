@@ -1,14 +1,14 @@
 # Conda recipe example.
 package:
     name: cell_tree2d
-    version: "0.1.0"
+    version: "0.1.1"
 
 source:
     git_url: https://github.com/NOAA-ORR-ERD/cell_tree2d
-    git_tag: v0.1.0
+    git_tag: v0.1.1
 
 build:
-    number: 1
+    number: 0
 
 requirements:
   build:
@@ -24,16 +24,14 @@ test:
   # Python imports
   imports:
     - cell_tree2d
-#  commands:
-    # need to figure out how to run the pytests...
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
+  commands:
+    - py.test --pyargs cell_tree2d 
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
 
-#  requires:
-#    - pytest
+  requires:
+  #  - pytest
 
 about:
   home: https://github.com/NOAA-ORR-ERD/cell_tree2d
