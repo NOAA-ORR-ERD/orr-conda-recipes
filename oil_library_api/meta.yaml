@@ -1,0 +1,37 @@
+package:
+    name: oil_library_api
+    version: 0.0.1
+
+source:
+    git_url: https://srccontrol.orr.noaa.gov/gnome/oillibraryapi.git 
+    git_tag: 0.0.1
+
+build: 
+    number: 1
+    skip: True  # [py3k]
+
+requirements:
+    build:
+        - python
+        - setuptools
+    run:
+        - python
+        - ujson
+        - pyramid
+        - pyramid_tm
+        - oil_library
+        - cornice
+test:
+    imports:
+        - oil_library_api
+    requires:
+        - webtest
+        - pytest
+    commands:
+        - py.test --pyargs oil_library_api
+
+
+about:
+    home: https://github.com/NOAA-ORR-ERD/PyGnome
+    license: Public Domain
+    summary: Oil library and associated code used by NOAA oil spill modeling tools
