@@ -19,6 +19,10 @@ requirements:
   run:
     - python
     - numpy
+  test:
+    - python
+    - pytest
+    - numpy
 
 test:
   # Python imports
