@@ -1,13 +1,13 @@
 package:
     name: gnome
-    version: 0.0.1a
+    version: 0.0.2
 
 build:
     number: 1
 
 source:
     git_url: https://srccontrol.orr.noaa.gov/gnome/pygnome.git
-    git_tag: 0.0.1a
+    git_tag: 0.0.2
 
 requirements:
     build:
