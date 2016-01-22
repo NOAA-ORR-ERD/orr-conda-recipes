@@ -3,11 +3,12 @@ package:
   version: "0.1.4"
 
 build:
-  number: 3
+  number: 4
 
 source:
     git_url: https://github.com/NOAA-ORR-ERD/py_gd.git
-    git_tag: v0.1.4
+#    git_tag: v0.1.4
+    git_tag: master
 
 requirements:
   build:
@@ -25,6 +26,10 @@ test:
   # Python imports
   imports:
     - py_gd
+  commands:
+    - py.test --pyargs py_gd 
+
+
 #  commands:
     # need to figure out how to run the pytests...
     # You can put test commands to be run here.  Use this to test that the
