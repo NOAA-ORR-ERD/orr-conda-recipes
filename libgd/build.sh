@@ -10,7 +10,9 @@ export LDFLAGS="-L$PREFIX/lib $LDFLAGS"
 ./configure --prefix=$PREFIX \
             --with-png=$PREFIX \
             --with-freetype=$PREFIX \
-            --with-tiff=$PREFIX
+            --with-tiff=$PREFIX \
+            --without-xpm
+
 
 make
 
