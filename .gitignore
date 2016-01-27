@@ -11,3 +11,5 @@ Icon
 
 #python stuff
 *.pyc
+.cache
+
