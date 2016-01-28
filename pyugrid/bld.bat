@@ -1,4 +1,4 @@
-"%PYTHON%" -m pip install ./
+"%PYTHON%" -m pip install --verbose ./
 if errorlevel 1 exit 1
 
 :: Add more build steps here, if they are necessary.
