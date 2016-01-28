@@ -19,23 +19,21 @@ requirements:
   run:
     - python
     - numpy
-  test:
-    - python
+test:
+  requires:
     - pytest
+    - python
     - numpy
 
-test:
-  # Python imports
   imports:
     - cell_tree2d
+
   commands:
     - py.test --pyargs cell_tree2d 
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
 
-  requires:
-  #  - pytest
 
 about:
   home: https://github.com/NOAA-ORR-ERD/cell_tree2d
