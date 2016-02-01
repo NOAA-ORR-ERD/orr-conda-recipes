@@ -7,7 +7,7 @@ source:
     git_tag: 0.0.1
 
 build: 
-    number: 1
+    number: 2
     skip: True  # [py3k]
 
 requirements:
@@ -19,7 +19,7 @@ requirements:
         - ujson
         - pyramid
         - pyramid_tm
-        - oil_library
+        - oil_library ==0.0.2
         - cornice
 test:
     imports:
