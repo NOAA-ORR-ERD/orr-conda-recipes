@@ -1,6 +1,7 @@
 #!/bin/bash
 
-$PYTHON -m pip install --verbose ./
+#$PYTHON -m pip install -I -v --upgrade --no-deps ./
+$PYTHON setup.py install --single-version-externally-managed  --record record.txt
 
 # Add more build steps here, if they are necessary.
 

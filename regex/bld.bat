@@ -4,7 +4,7 @@ rem -- shouldn't be required with the pip install (and anything compiled here an
 rem set MSSDK=1 
 rem set DISTUTILS_USE_SDK=1
 
-"%PYTHON%" -m pip install --verbose ./
+"%PYTHON%" setup.py install --single-version-externally-managed  --record record.txt
 
 if errorlevel 1 exit 1
 
