@@ -9,17 +9,17 @@ source:
 
 build:
   number: 0
-#  noarch_python: True
+  noarch_python: True
 
 
 requirements:
   build:
-    - python >=2.7
+    - python
     - pytest >=2.6.0
     - coverage >=3.7.1
 
   run:
-    - python >=2.7
+    - python
     - pytest >=2.6.0
     - coverage >=3.7.1
 
