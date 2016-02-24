@@ -1,13 +1,13 @@
 package:
     name: oil_library
-    version: 0.0.3
+    version: 0.0.4
 
 source:
     git_url: https://srccontrol.orr.noaa.gov/gnome/OilLibrary.git
-    git_tag: 0.0.3
+    git_tag: 0.0.4
 
 build: 
-    number: 3
+    number: 1
     skip: True  # [py3k]
 
 requirements:
