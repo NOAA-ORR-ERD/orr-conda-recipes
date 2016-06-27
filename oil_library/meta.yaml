@@ -1,10 +1,10 @@
 package:
     name: oil_library
-    version: 0.0.1
+    version: 0.0.4
 
 source:
     git_url: https://srccontrol.orr.noaa.gov/gnome/OilLibrary.git
-    git_tag: 0.0.1
+    git_tag: 0.0.4
 
 build: 
     number: 1
