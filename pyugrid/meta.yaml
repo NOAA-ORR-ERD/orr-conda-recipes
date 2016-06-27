@@ -1,24 +1,24 @@
+# Conda recipe example.
 package:
     name: pyugrid
-    version: "0.1.7"
+    version: "0.2.1"
 
 source:
     git_url: https://github.com/pyugrid/pyugrid.git
-    git_tag: 0.1.7.1
+    git_tag: v0.2.1
+
+build:
+    number: 0
 
 requirements:
     build:
         - python
         - setuptools
-        - netcdf4
-        - matplotlib
-        - scipy
-        - mock
-        - nose
     run:
         - python
         - numpy
         - netcdf4
+        - scipy
 
 test:
     imports:
@@ -26,4 +26,5 @@ test:
 
 about:
     home: https://github.com/pyugrid/pyugrid
-    summary: A Python API to utilize data written using the unstructured grid UGRID conventions.
+    license: BSD
+    summary: 'A Python API to utilize data written using the unstructured grid UGRID conventions'

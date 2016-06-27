@@ -1,11 +1,11 @@
-# Pysgrid Conda recipe
+# Conda recipe example.
 package:
-    name: pysgrid
-    version: "0.2"
+    name: pyugrid
+    version: "0.3.1"
 
 source:
-    fn: alpha_memo.zip
-    url: https://github.com/jay-hennen/pysgrid/archive/alpha_memo.zip
+    git_url: https://github.com/pysgrid/pysgrid.git
+    git_tag: v0.3.1
 
 build:
     number: 0
@@ -22,9 +22,9 @@ requirements:
 
 test:
     imports:
-        - pysgrid
+        - pyugrid
 
 about:
-    home: https://github.com/pysgrid/pysgrid
+    home: https://github.com/pyugrid/pyugrid
     license: BSD
-    summary: 'A Python API to utilize data managed under the structured grid SGRID conventions'
+    summary: 'A Python API to utilize data written using the unstructured grid UGRID conventions'
