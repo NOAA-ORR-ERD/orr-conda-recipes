@@ -20,7 +20,6 @@ requirements:
     run:
         - matplotlib
         - python
-        - pytest
         - scipy
         - numpy
         - netcdf4
@@ -41,6 +40,13 @@ requirements:
 test:
     imports:
         - gnome
+    requires:
+        - pytest
+        - progressbar
+        - testfixtures
+    commands:
+        - cd ../work/py_gnome
+        - py.test
 
 about:
     home: https://github.com/NOAA-ORR-ERD/PyGnome
