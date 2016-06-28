@@ -4,6 +4,9 @@
 Script to run conda-build-all with the command line flags we usually want:
 
 Done in python so it will work on all platforms
+
+NOTE: the upload will only work if you have a BINSTAR_TOKEN environment variable set.
+
 """
 
 import subprocess
