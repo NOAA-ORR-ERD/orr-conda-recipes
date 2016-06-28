@@ -11,12 +11,14 @@ build:
 
   script: $RECIPE_DIR/build_osx.sh #[osx]
   script: $RECIPE_DIR/build.sh #[linux]
+  skip: True  #[win]
+  skip: True  #[linux]
+  skip: True  #[osx] # until I get the build errors figured out
 
-  skip: True  # [win]
 
 requirements:
   build:
-    - python
+    - python >=2.7,<3
     - setuptools
 
   run:

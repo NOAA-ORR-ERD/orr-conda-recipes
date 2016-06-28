@@ -1,9 +1,10 @@
 
-rem These need to be set so that distuitls won't try to run vcvasall.bat
-set MSSDK=1 
-set DISTUTILS_USE_SDK=1
+rem These need to be set so that distutls won't try to run vcvasall.bat
+rem -- shouldn't be required with the pip install (and anything compiled here anyway?)
+rem set MSSDK=1 
+rem set DISTUTILS_USE_SDK=1
 
-"%PYTHON%" setup.py install
+"%PYTHON%" setup.py install --single-version-externally-managed  --record record.txt
 
 if errorlevel 1 exit 1
 

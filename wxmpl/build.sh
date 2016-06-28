@@ -1,7 +1,8 @@
 #!/bin/bash
 
+$PYTHON -m pip install -v --no-deps ./
+#$PYTHON setup.py install --single-version-externally-managed  --record record.txt
 
-$PYTHON setup.py install --single-version-externally-managed  --record record.txt
 # Add more build steps here, if they are necessary.
 
 # See

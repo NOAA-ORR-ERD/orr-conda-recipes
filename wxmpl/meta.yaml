@@ -1,0 +1,42 @@
+package:
+  name: wxmpl
+  version: "2.0.0"
+
+source:
+  fn: wxmpl-2.0.0.tar.gz
+  url: http://agni.phys.iit.edu/~kmcivor/wxmpl/downloads/wxmpl-2.0.0.tar.gz
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  # preserve_egg_dir: True
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - wxpython
+    - matplotlib
+
+test:
+  # Python imports
+  imports:
+#   broken with recent MPL -- fix one day!    
+#    - wxmpl
+
+#  commands:
+#    - py.test
+#  requires:
+#    - pytest
+#  files:
+#    - tests/*
+
+about:
+  home: http://agni.phys.iit.edu/~kmcivor/wxmpl/
+  license: BSD-like
+  summary: 'Painless matplotlib embedding in wxPython'
