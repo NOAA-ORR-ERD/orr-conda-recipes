@@ -8,7 +8,7 @@ Done in python so it will work on all platforms
 NOTE: the upload will only work if you have a BINSTAR_TOKEN environment variable set.
 
 """
-
+import os
 import subprocess
 
 # make sure tools are up to date:
@@ -26,11 +26,14 @@ subprocess.check_call(["conda", "update", "conda-build-all", "--channel", "conda
 # subprocess.check_call(["conda", "config", "--add", "channels", "NOAA-ORR-ERD"],
 #                      shell=False)
 
-# This is the command:
-# conda-build-all ./ --matrix-conditions "python 2.7.*" "numpy >=1.11" --inspect-channels NOAA-ORR-ERD --upload-channels NOAA-ORR-ERD
+# add a dummy environment variable, so that you can use "numpy x.x"
+# see: https://github.com/SciTools/conda-build-all/issues/45
+# not working, but saved in case I figure it out
+# this_env = os.environ.copy()
+# this_env["CONDA_NPY"] = "00"
 
-# This version:L is an attempt to get teh rigth numpy version with "numpy x.x", but it's failing...
-# conda-build-all ./ --matrix-conditions "python 2.7.*" "numpy >=1.11" --inspect-channels NOAA-ORR-ERD --upload-channels NOAA-ORR-ERD
+# This is the command:
+# conda-build-all ./ --matrix-conditions "python 2.7.*" --inspect-channels NOAA-ORR-ERD --upload-channels NOAA-ORR-ERD
 
 subprocess.check_call(["conda-build-all", "./",
                        "--matrix-conditions", "python 2.7.*",
@@ -38,4 +41,6 @@ subprocess.check_call(["conda-build-all", "./",
                        "--upload-channels", "NOAA-ORR-ERD",
                        "--no-inspect-conda-bld-directory",
                        "--artefact-directory", "packages"
-                       ], shell=False)
+                       ],
+                      shell=False,
+                      env=this_env)
