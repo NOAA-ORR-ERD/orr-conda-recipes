@@ -4,6 +4,8 @@ package:
 
 build:
     number: 2
+# skipping so it won't be auto-built by build-all
+    skip: True
 
 source:
     git_url: https://srccontrol.orr.noaa.gov/gnome/pygnome.git

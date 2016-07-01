@@ -26,10 +26,10 @@ subprocess.check_call(["conda", "update", "conda-build-all", "--channel", "conda
 # subprocess.check_call(["conda", "config", "--add", "channels", "NOAA-ORR-ERD"],
 #                      shell=False)
 
+this_env = os.environ.copy()
 # add a dummy environment variable, so that you can use "numpy x.x"
 # see: https://github.com/SciTools/conda-build-all/issues/45
 # not working, but saved in case I figure it out
-# this_env = os.environ.copy()
 # this_env["CONDA_NPY"] = "00"
 
 # This is the command:
