@@ -12,14 +12,14 @@ import os
 import subprocess
 
 # make sure tools are up to date:
-subprocess.check_call(["conda", "update", "conda-build"],
+subprocess.check_call(["conda", "update", "setuptools", "pip"],
                       shell=False)
 
-subprocess.check_call(["conda", "update", "anaconda-client"],
+subprocess.check_call(["conda", "update", "conda-build", "anaconda-client"],
                       shell=False)
 
-subprocess.check_call(["conda", "update", "conda-build-all", "--channel", "conda-forge"],
-                      shell=False)
+#subprocess.check_call(["conda", "update", "conda-build-all", "--channel", "conda-forge"],
+#                      shell=False)
 
 # adding a channel multiple times seems to put it on the list in front of defaults,
 #   which we may not want
@@ -29,8 +29,8 @@ subprocess.check_call(["conda", "update", "conda-build-all", "--channel", "conda
 this_env = os.environ.copy()
 # add a dummy environment variable, so that you can use "numpy x.x"
 # see: https://github.com/SciTools/conda-build-all/issues/45
-# not working, but saved in case I figure it out
-# this_env["CONDA_NPY"] = "00"
+# the actuall value isn't used, but it needs to be a valid value (i.e. '00' does not work)
+this_env["CONDA_NPY"] = "100"
 
 # This is the command:
 # conda-build-all ./ --matrix-conditions "python 2.7.*" --inspect-channels NOAA-ORR-ERD --upload-channels NOAA-ORR-ERD

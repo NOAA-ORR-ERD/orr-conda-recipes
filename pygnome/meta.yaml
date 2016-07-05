@@ -15,7 +15,7 @@ requirements:
     build:
         - python
         - setuptools
-        - numpy
+        - numpy x.x
         - netcdf4
         - cython
         - py_gd
@@ -23,7 +23,7 @@ requirements:
         - matplotlib
         - python
         - scipy
-        - numpy
+        - numpy x.x
         - netcdf4
         - colander
         - pil
