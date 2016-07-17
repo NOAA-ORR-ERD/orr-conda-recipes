@@ -12,14 +12,14 @@ import os
 import subprocess
 
 # make sure tools are up to date:
-subprocess.check_call(["conda", "update", "setuptools", "pip"],
+subprocess.check_call(["conda", "update", "-y", "setuptools", "pip"],
                       shell=False)
 
-subprocess.check_call(["conda", "update", "conda-build", "anaconda-client"],
+subprocess.check_call(["conda", "update", "-y", "conda-build", "anaconda-client"],
                       shell=False)
 
-#subprocess.check_call(["conda", "update", "conda-build-all", "--channel", "conda-forge"],
-#                      shell=False)
+subprocess.check_call(["conda", "update", "-y", "conda-build-all", "--channel", "conda-forge"],
+                      shell=False)
 
 # adding a channel multiple times seems to put it on the list in front of defaults,
 #   which we may not want
