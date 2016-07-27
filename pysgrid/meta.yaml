@@ -1,14 +1,19 @@
-# Conda recipe example.
+{% set version = "0.3.2" %}
+{% set sha256 = "db7ac4ad473c02dc71a18017febd88931936673fa0c20ce9c08a643f91b6a9ed"%}
+
+
 package:
     name: pysgrid
-    version: "0.3.2"
+    version: {{ version }}
 
 source:
-    git_url: https://github.com/NOAA-ORR-ERD/pysgrid.git
-    git_tag: v0.3.2
+    fn: pysgrid-{{ version }}.tar.gz
+    url: https://github.com/NOAA-ORR-ERD/pysgrid/archive/v{{ version }}.tar.gz
+    sha256: {{ sha256 }}
 
 build:
     number: 1
+    script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
     build:
@@ -18,13 +23,44 @@ requirements:
         - python
         - numpy
         - netcdf4
-        - scipy
 
 test:
     imports:
         - pysgrid
 
 about:
-    home: https://github.com/pysgrid/pysgrid
-    license: BSD
-    summary: 'A Python API to utilize data written using the unstructured grid UGRID conventions'
+    home: https://github.com/sgrid/pysgrid
+    license: BSD-3-Clause
+    summary: Python package for working with staggered gridded data
+
+
+# # Conda recipe example.
+# package:
+#     name: pysgrid
+#     version: "0.3.2"
+
+# source:
+#     git_url: https://github.com/NOAA-ORR-ERD/pysgrid.git
+#     git_tag: v0.3.2
+
+# build:
+#     number: 1
+
+# requirements:
+#     build:
+#         - python
+#         - setuptools
+#     run:
+#         - python
+#         - numpy
+#         - netcdf4
+#         - scipy
+
+# test:
+#     imports:
+#         - pysgrid
+
+# about:
+#     home: https://github.com/pysgrid/pysgrid
+#     license: BSD
+#     summary: 'A Python API to utilize data written using the unstructured grid UGRID conventions'
