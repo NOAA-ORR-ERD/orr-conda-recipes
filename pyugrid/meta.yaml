@@ -1,14 +1,18 @@
-# Conda recipe example.
+{% set version = "0.2.2" %}
+{% set sha256 = "5fae6642c44fabb7caf945e2145e869d1e04832d399656f36721b6235d537670"%}
+
 package:
     name: pyugrid
-    version: "0.2.2"
+    version: {{ version }}
 
 source:
-    git_url: https://github.com/pyugrid/pyugrid.git
-    git_tag: v0.2.2
+    fn: pyugrid-{{ version }}.tar.gz
+    url: https://github.com/pyugrid/pyugrid/archive/v{{ version }}.tar.gz
+    sha256: {{ sha256 }}
 
 build:
-    number: 0
+    number: 1
+    script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
     build:
@@ -18,7 +22,6 @@ requirements:
         - python
         - numpy
         - netcdf4
-        - scipy
 
 test:
     imports:
@@ -27,4 +30,4 @@ test:
 about:
     home: https://github.com/pyugrid/pyugrid
     license: BSD
-    summary: 'A Python API to utilize data written using the unstructured grid UGRID conventions'
+    summary: A Python API to utilize data written using the unstructured grid UGRID conventions.

@@ -1,42 +1,82 @@
-# Conda recipe example.
+{% set version = "0.2.0" %}
+
 package:
     name: cell_tree2d
-    version: "0.2.0"
+    version: {{ version }}
 
 source:
-    git_url: https://github.com/NOAA-ORR-ERD/cell_tree2d
-    git_tag: v0.2.0
+    fn: cell_tree2d-{{ version }}-.tar.gz
+    url: https://github.com/NOAA-ORR-ERD/cell_tree2d/archive/v{{ version }}.tar.gz
+    sha256: dbdb0f6f3b68536f73b9db79c1199753504fbf58397551b4c9bf210aa364cbce
 
 build:
     number: 1
+    script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
-  build:
-    - python
-    - cython
-    - numpy 1.11.*
-
-  run:
-    - python
-    - numpy 1.11.*
+    build:
+        - python
+        - setuptools
+        - cython
+        - numpy
+    run:
+        - python
+        - numpy
 
 test:
-  requires:
-    - pytest
-    - python
-    - numpy
-
-  imports:
-    - cell_tree2d
-
-  commands:
-    - py.test --pyargs cell_tree2d 
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
+    requires:
+        - pytest
+    imports:
+        - cell_tree2d
+    commands:
+        - py.test --pyargs cell_tree2d
 
 about:
-  home: https://github.com/NOAA-ORR-ERD/cell_tree2d
-  license: Public Domain
-  summary: 'Data structure for rapid resolution of the "which polygon is this point in" question on unstructured grids'
+    home: https://github.com/NOAA-ORR-ERD/cell_tree2d
+    license: Public Domain
+    summary: CellTree data structure as described by Garth and Joy 2010
+
+
+
+# # Conda recipe example.
+# package:
+#     name: cell_tree2d
+#     version: "0.2.0"
+
+# source:
+#     git_url: https://github.com/NOAA-ORR-ERD/cell_tree2d
+#     git_tag: v0.2.0
+
+# build:
+#     number: 1
+
+# requirements:
+#   build:
+#     - python
+#     - cython
+#     - numpy 1.11.*
+
+#   run:
+#     - python
+#     - numpy 1.11.*
+
+# test:
+#   requires:
+#     - pytest
+#     - python
+#     - numpy
+
+#   imports:
+#     - cell_tree2d
+
+#   commands:
+#     - py.test --pyargs cell_tree2d 
+
+#   # You can also put a file called run_test.py in the recipe that will be run
+#   # at test time.
+
+
+# about:
+#   home: https://github.com/NOAA-ORR-ERD/cell_tree2d
+#   license: Public Domain
+#   summary: 'Data structure for rapid resolution of the "which polygon is this point in" question on unstructured grids'
