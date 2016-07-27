@@ -30,7 +30,7 @@ this_env = os.environ.copy()
 # add a dummy environment variable, so that you can use "numpy x.x"
 # see: https://github.com/SciTools/conda-build-all/issues/45
 # the actuall value isn't used, but it needs to be a valid value (i.e. '00' does not work)
-this_env["CONDA_NPY"] = "100"
+this_env["CONDA_NPY"] = "111"
 
 # This is the command:
 # conda-build-all ./ --matrix-conditions "python 2.7.*" --inspect-channels NOAA-ORR-ERD --upload-channels NOAA-ORR-ERD

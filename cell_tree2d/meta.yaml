@@ -18,10 +18,10 @@ requirements:
         - python
         - setuptools
         - cython
-        - numpy
+        - numpy x.x
     run:
         - python
-        - numpy
+        - numpy x.x
 
 test:
     requires:
