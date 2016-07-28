@@ -7,7 +7,7 @@ package:
 source:
     fn: cell_tree2d-{{ version }}-.tar.gz
     url: https://github.com/NOAA-ORR-ERD/cell_tree2d/archive/v{{ version }}.tar.gz
-    sha256: dbdb0f6f3b68536f73b9db79c1199753504fbf58397551b4c9bf210aa364cbce
+    sha256: 1732d82316c6df5e36dbee517afcb4530b4fed80eb3c9c4ef297c5a9c9dac85e
 
 build:
     number: 0
