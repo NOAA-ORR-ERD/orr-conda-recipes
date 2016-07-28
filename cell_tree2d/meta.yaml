@@ -7,10 +7,10 @@ package:
 source:
     fn: cell_tree2d-{{ version }}-.tar.gz
     url: https://github.com/NOAA-ORR-ERD/cell_tree2d/archive/v{{ version }}.tar.gz
-    sha256: 1732d82316c6df5e36dbee517afcb4530b4fed80eb3c9c4ef297c5a9c9dac85e
+    sha256: 4a5759951f67a3ff199137c87bb565b1897541130de5a4a2067acb22b0f39bae
 
 build:
-    number: 0
+    number: 1
     script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
