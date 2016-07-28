@@ -1,4 +1,4 @@
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
     name: cell_tree2d
@@ -10,7 +10,7 @@ source:
     sha256: dbdb0f6f3b68536f73b9db79c1199753504fbf58397551b4c9bf210aa364cbce
 
 build:
-    number: 1
+    number: 0
     script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
@@ -41,14 +41,14 @@ about:
 # # Conda recipe example.
 # package:
 #     name: cell_tree2d
-#     version: "0.2.0"
+#     version: "0.3.0"
 
 # source:
 #     git_url: https://github.com/NOAA-ORR-ERD/cell_tree2d
-#     git_tag: v0.2.0
+#     git_tag: v0.3.0
 
 # build:
-#     number: 1
+#     number: 0
 
 # requirements:
 #   build:
