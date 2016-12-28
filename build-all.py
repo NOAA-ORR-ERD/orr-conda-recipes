@@ -15,7 +15,12 @@ import subprocess
 subprocess.check_call(["conda", "update", "-y", "setuptools", "pip"],
                       shell=False)
 
-subprocess.check_call(["conda", "update", "-y", "conda-build", "anaconda-client"],
+# NOTE: conda-build-all had a bug with conda-build versions 2.0.11 and 2.0.12
+#       hopefully this is fixed at some point
+subprocess.check_call(["conda", "install", "-y", "conda-build==2.0.10"],
+                      shell=False)
+
+subprocess.check_call(["conda", "update", "-y", "anaconda-client"],
                       shell=False)
 
 subprocess.check_call(["conda", "update", "-y", "conda-build-all", "--channel", "conda-forge"],
@@ -29,7 +34,7 @@ subprocess.check_call(["conda", "update", "-y", "conda-build-all", "--channel", 
 this_env = os.environ.copy()
 # add a dummy environment variable, so that you can use "numpy x.x"
 # see: https://github.com/SciTools/conda-build-all/issues/45
-# the actuall value isn't used, but it needs to be a valid value (i.e. '00' does not work)
+# the actual value isn't used, but it needs to be a valid value (i.e. '00' does not work)
 this_env["CONDA_NPY"] = "111"
 
 # This is the command:
@@ -39,7 +44,7 @@ subprocess.check_call(["conda-build-all", "./",
                        "--matrix-conditions", "python 2.7.*",
                        "--inspect-channels", "NOAA-ORR-ERD",
                        "--upload-channels", "NOAA-ORR-ERD",
-                       "--no-inspect-conda-bld-directory",
+                       "--no-inspect-conda-bld-directory",  #  ensures that it re-builds and uploads stuff that was already build by hand
                        "--artefact-directory", "packages"
                        ],
                       shell=False,
