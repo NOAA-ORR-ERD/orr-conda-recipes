@@ -1,10 +1,10 @@
 package:
   name: unit_conversion
-  version: '2.5.4'
+  version: '2.5.5'
 
 source:
   git_url: https://github.com/NOAA-ORR-ERD/PyNUCOS.git
-  git_tag: 'v2.5.4'
+  git_tag: 'v2.5.5'
 
 build:
   number: 0
@@ -23,7 +23,7 @@ test:
       - pytest
     commands:
       - py.test --pyargs unit_conversion
-    
+
 about:
     home: https://github.com/NOAA-ORR-ERD/PyNUCOS
     license: Public Domain
