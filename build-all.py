@@ -41,7 +41,7 @@ this_env["CONDA_NPY"] = "111"
 # conda-build-all ./ --matrix-conditions "python 2.7.*" --inspect-channels NOAA-ORR-ERD --upload-channels NOAA-ORR-ERD
 
 subprocess.check_call(["conda-build-all", "./",
-                       "--matrix-conditions", "python 2.7.*",
+                       "--matrix-conditions", "python 2.7.*","numpy >=1.11",
                        "--inspect-channels", "NOAA-ORR-ERD",
                        "--upload-channels", "NOAA-ORR-ERD",
                        "--no-inspect-conda-bld-directory",  #  ensures that it re-builds and uploads stuff that was already build by hand
