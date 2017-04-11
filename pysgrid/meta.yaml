@@ -1,5 +1,5 @@
 {% set version = "0.3.4" %}
-{% set sha256 = "3eb6d9a2e861ce66c0702ecbd0bdf8e1270a6c82e2237d0746c4c00beb6b2ba5"%}
+{% set sha256 = "e3a5e6c449be6faa23c38e05ce5b8b02cb04305c13868139d630ddd061f1137a"%}
 
 
 package:
@@ -12,7 +12,7 @@ source:
     sha256: {{ sha256 }}
 
 build:
-    number: 1
+    number: 2
     script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
