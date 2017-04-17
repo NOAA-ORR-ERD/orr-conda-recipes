@@ -25,8 +25,15 @@ requirements:
         - netcdf4
 
 test:
+    requires:
+        - pytest
+        - scipy
+        - cell_tree2d
     imports:
         - pysgrid
+    commands:
+        - py.test --pyargs pysgrid
+
 
 about:
     home: https://github.com/sgrid/pysgrid
@@ -34,33 +41,3 @@ about:
     summary: Python package for working with staggered gridded data
 
 
-# # Conda recipe example.
-# package:
-#     name: pysgrid
-#     version: "0.3.2"
-
-# source:
-#     git_url: https://github.com/NOAA-ORR-ERD/pysgrid.git
-#     git_tag: v0.3.2
-
-# build:
-#     number: 1
-
-# requirements:
-#     build:
-#         - python
-#         - setuptools
-#     run:
-#         - python
-#         - numpy
-#         - netcdf4
-#         - scipy
-
-# test:
-#     imports:
-#         - pysgrid
-
-# about:
-#     home: https://github.com/pysgrid/pysgrid
-#     license: BSD
-#     summary: 'A Python API to utilize data written using the unstructured grid UGRID conventions'
