@@ -1,6 +1,6 @@
-{% set name = "jsonpickle" %}
-{% set version = "0.9.5" %}
-{% set sha256 = "cc25dc79571d4ad7db59d05ddb7de0d76a8d598cf6136e1dbeaa9361ebcfe749" %}
+{% set name = "bson" %}
+{% set version = "0.4.8" %}
+{% set sha256 = "6cea0806b4b85ab26f4241afb8e0f7e82232cdac52447bb3267b16fa975ef53a" %}
 
 package:
   name: {{ name|lower }}
@@ -21,15 +21,17 @@ requirements:
     - setuptools
   run:
     - python
+    - six
+    - pytz
 
 test:
   # Some package might need a `test/commands` key to check CLI.
   # List all the packages/modules that `run_test.py` imports.
   imports:
-    - jsonpickle
+    - bson
 
 about:
-  home: http://jsonpickle.github.io/
+  home: https://github.com/py-bson/bson
   license: BSD-3-Clause
   license_family: BSD
 
