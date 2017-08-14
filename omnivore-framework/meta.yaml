@@ -1,0 +1,54 @@
+{% set name = "omnivore-framework" %}
+{% set version = "1.0rc7" %}
+{% set sha256 = "acf5bf784c165e42ee6e31b3730030f91f5060be0c36752ca52de82ff89e357d" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+  skip: True # [py3k]
+
+requirements:
+  build:
+    - python
+    - numpy
+    - setuptools
+    - toolchain
+  run:
+    - python
+    - numpy
+    - jsonpickle >=0.9.4
+    - bson <1.0.0
+    - configobj
+    - pyparsing
+
+test:
+  # Some package might need a `test/commands` key to check CLI.
+  # List all the packages/modules that `run_test.py` imports.
+  imports:
+    - omnivore
+
+about:
+  home: https://pypi.python.org/pypi/omnivore-framework
+  # Remember to specify the license variants for BSD, Apache, GPL, and LGLP.
+  # Prefer the short version, e.g: GPL-2.0 instead of GNU General Public License version 2.0
+  # See https://opensource.org/licenses/alphabetical
+  license: GPL
+  # The license_family, i.e. "BSD" if license is "BSD-3-Clause". (optional)
+  license_family: GPL
+  dev_url: https://github.com/robmcmullen/omnivore/
+
+extra:
+  recipe-maintainers:
+    # GitHub IDs for maintainers of the recipe.
+    # Always check with the people listed below if they are OK becoming maintainers of the recipe. (There will be spam!)
+    - robmcmullen
+    - ChrisBarker-NOAA
