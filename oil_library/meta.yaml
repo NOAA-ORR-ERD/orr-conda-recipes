@@ -1,10 +1,10 @@
 package:
     name: oil_library
-    version: 0.0.4
+    version: v1.0.4
 
 source:
     git_url: https://srccontrol.orr.noaa.gov/gnome/OilLibrary.git
-    git_tag: 0.0.4
+    git_tag: v1.0.4
 
 build: 
     number: 1
@@ -14,20 +14,24 @@ build:
 requirements:
     build:
         - python
-        - numpy
         - setuptools
+        - numpy
+        - scipy
         - sqlalchemy
+        - zope.sqlalchemy >=0.7.7
         - transaction
-        - zope.sqlalchemy
         - awesome-slugify
         - unit_conversion
         - repoze.lru
     run:
-        - numpy
         - python
+        - pytest
+        - testfixtures
+        - numpy
+        - scipy
         - sqlalchemy
+        - zope.sqlalchemy >=0.7.7
         - transaction
-        - zope.sqlalchemy
         - awesome-slugify
         - unit_conversion
         - repoze.lru
