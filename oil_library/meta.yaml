@@ -9,7 +9,7 @@ source:
 build: 
     number: 1
 # skipping so it won't be auto-built by build-all
-    skip: True
+    skip: False
 
 requirements:
     build:
