@@ -1,15 +1,19 @@
+{% set name = "oil_library" %}
+{% set version = "1.0.4" %}
+{% set sha256 = "f67c8afcb710e427d9f7424b0e29eb136a43bb33c0bb8b066f49cfb47892c6b7" %}
+
 package:
-    name: oil_library
-    version: v1.0.4
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-    git_url: https://srccontrol.orr.noaa.gov/gnome/OilLibrary.git
-    git_tag: v1.0.4
+  fn: OilLibrary-{{ version }}.tar.gz
+  url: https://github.com/NOAA-ORR-ERD/OilLibrary/archive/v{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
-build: 
-    number: 1
-# skipping so it won't be auto-built by build-all
-    skip: False
+build:
+  number: 1
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
     build:
@@ -25,8 +29,6 @@ requirements:
         - repoze.lru
     run:
         - python
-        - pytest
-        - testfixtures
         - numpy
         - scipy
         - sqlalchemy
