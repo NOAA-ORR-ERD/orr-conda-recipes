@@ -138,11 +138,11 @@ such as the OilLibrary database initialization script, then setuptools will
 build that script with a hash-bang, or 'shebang' ('#!') header on the first
 line of the script that contains a path to the python executable using the
 PREFIX path.  For the sake of readability, here is an example of a normal
-shebang script:
+shebang script::
 
-    #!/usr/bin/env python
-    import sys
-    print sys.prefix
+  #!/usr/bin/env python
+  import sys
+  print sys.prefix
 
 The maximum length of the interpreter path in the first line is limited
 in the kernel by BINPRM_BUF_SIZE, set in include/linux/binfmts.h.
@@ -150,7 +150,7 @@ And a typical linux distribution sets it to 127 characters.  So when
 conda-build generates a script using a PREFIX to 256, it creates a script that
 exceeds the maximum interpreter path length, and the script cannot be run.
 
-And the error you get is very misleading:
+And the error you get is very misleading::
 
     $ ls -l ./initialize_OilLibrary_db
     -rwxrwxr-x 1 jamesm jamesm 678 Sep  3 13:17 ./initialize_OilLibrary_db
@@ -161,8 +161,8 @@ Yeah...the file exists and is executable, but when we try to execute it,
 the file doesn't exist.  In actuality, it is the interpreter specified by the
 shebang that doesn't exist, because it has been truncated.
 
-Please note that this problem does not seem to happen on MacOSX or Windows,
-just Linux.
+*(Please note that this problem does not seem to happen on MacOSX or Windows,
+just Linux.)*
 
 So what should we do about this?
 
@@ -175,9 +175,10 @@ not want to do that.
 **Option 2:**
 
 Fortunately, conda-build comes with a command-line argument that will set the
-size of PREFIX F(--prefix-length LEN).  So if we set our PREFIX to a value
-that is less than 127 - len('/bin/python\n'), which works out to **114**,
+size of PREFIX (--prefix-length LEN).  So if we set our PREFIX to a value
+that is less than 127 - len('/bin/python\\n'), which works out to **114**,
 this will work.
+::
 
     $ conda build oil_library --prefix_length 114
     ...
