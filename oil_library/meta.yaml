@@ -1,6 +1,6 @@
 {% set name = "oil_library" %}
-{% set version = "1.0.4" %}
-{% set sha256 = "f67c8afcb710e427d9f7424b0e29eb136a43bb33c0bb8b066f49cfb47892c6b7" %}
+{% set version = "1.0.6" %}
+{% set sha256 = "39bbc19bdf7ddd2737671d6b1f28a310d324cb78ab43ada2e826e37f2ac88fef" %}
 
 package:
   name: {{ name|lower }}
