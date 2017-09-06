@@ -180,9 +180,9 @@ that is less than 127 - len('/bin/python\\n'), which works out to **114**,
 this will work.
 ::
 
-    $ conda build oil_library --prefix_length 114
+    $ conda build oil_library --prefix-length 114
     ...
     ...
-    TEST END: <build_location>/oil_library-1.0.5-py27_1.tar.bz2  # for example
+    TEST END: <build_location>/oil_library-1.0.5-py27_1.tar.bz2  # tarball successfully built
     ...
     $
