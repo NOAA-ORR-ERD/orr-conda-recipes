@@ -10,20 +10,18 @@ build:
   number: 0
   script: pip install wxpython=={{ version }}
 
-python:
-  - 2.7
-  - 3.6
 
 requirements:
   build:
-    - python
+    - python {{ python }}
     - setuptools
     - pip
     - six
 
   run:
-    - python
+    - python {{ python }}
     - six
+    - python.app  # [osx]
 
 test:
     imports:
