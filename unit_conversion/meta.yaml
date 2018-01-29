@@ -1,20 +1,25 @@
+{% set version = "2.6.0" %}
+
 package:
   name: unit_conversion
-  version: '2.5.5'
+  version: {{ version }}
 
 source:
-  git_url: https://github.com/NOAA-ORR-ERD/PyNUCOS.git
-  git_tag: 'v2.5.5'
+
+  fn: PyNUCOS-{{ version }}.tar.gz
+  url: https://github.com/NOAA-ORR-ERD/PyNUCOS/archive/v{{ version }}.tar.gz
+  sha256: 313e0cdcf17ecb081ccebf222b70b80a4751396552ffce8a38bcbafffddfbe81
 
 build:
   number: 0
+  noarch: python
 
 requirements:
   build:
-    - python
+    - python >=2.7
     - setuptools
   run:
-    - python
+    - python >=2.7
 
 test:
     imports:

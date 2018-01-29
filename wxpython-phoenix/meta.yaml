@@ -1,22 +1,25 @@
-# Note: this recipe simply downloads and installs the binary wheels built by the project.
+# Note: this recipe simply downloads and installs the binary wheels on pypi
+
+{% set version = "4.0.0b2" %}
 
 package:
-  name: wxpython-phoenix
-  version: 3.0.2.0
+  name: wxpython
+  version: {{ version }}
 
 build:
   number: 0
-
-  skip: True  # [win]
-  skip: True  # [linux]
+  script: pip install wxpython=={{ version }}
 
 requirements:
   build:
-    - python
+    - python >=3.6
     - setuptools
+    - pip
+    - six
 
   run:
-    - python
+    - python >=3.6
+    - six
 
 test:
     imports:
