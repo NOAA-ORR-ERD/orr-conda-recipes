@@ -1,6 +1,6 @@
 # Note: this recipe simply downloads and installs the binary wheels on pypi
 
-{% set version = "4.0.0b2" %}
+{% set version = "4.0.0" %}
 
 package:
   name: wxpython
