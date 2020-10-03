@@ -1,5 +1,5 @@
 {% set name = "omnivore-framework" %}
-{% set version = "1.0rc7" %}
+{% set version = "3.0" %}
 {% set sha256 = "acf5bf784c165e42ee6e31b3730030f91f5060be0c36752ca52de82ff89e357d" %}
 
 package:
@@ -13,8 +13,9 @@ source:
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
-  skip: True # [py3k]
+  noarch: python
+  script: script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+#  skip: True # [py3k]
 
 requirements:
   build:
@@ -29,6 +30,8 @@ requirements:
     - bson <1.0.0
     - configobj
     - pyparsing
+    - pytz
+    - traits>=4.6
 
 test:
   # Some package might need a `test/commands` key to check CLI.
@@ -37,7 +40,7 @@ test:
     - omnivore
 
 about:
-  home: https://pypi.python.org/pypi/omnivore-framework
+  home: https://github.com/robmcmullen/omnivore_framework
   # Remember to specify the license variants for BSD, Apache, GPL, and LGLP.
   # Prefer the short version, e.g: GPL-2.0 instead of GNU General Public License version 2.0
   # See https://opensource.org/licenses/alphabetical

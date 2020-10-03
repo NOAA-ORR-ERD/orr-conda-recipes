@@ -1,4 +1,5 @@
-{% set version = "2.6.0" %}
+{% set version = "2.6.1" %}
+{% set build_num = "1" %}
 
 package:
   name: unit_conversion
@@ -8,10 +9,11 @@ source:
 
   fn: PyNUCOS-{{ version }}.tar.gz
   url: https://github.com/NOAA-ORR-ERD/PyNUCOS/archive/v{{ version }}.tar.gz
-  sha256: 313e0cdcf17ecb081ccebf222b70b80a4751396552ffce8a38bcbafffddfbe81
+  sha256: 7693277d8df971618eb4660d3669fdcf512a004193b91936b8f8a01cddfb4b18
 
 build:
-  number: 0
+  number: {{ build_num }}
+  string: py27_{{ build_num }} # set so that noarch is clearly py27 (enforced by the run reqs)
   noarch: python
 
 requirements:

@@ -1,0 +1,12 @@
+python:
+    - 2.7
+    # - 3.7
+    # - 3.8
+numpy:
+  # - 1.15
+  - 1.16
+  # - 1.17
+
+CONDA_BUILD_SYSROOT:
+  - /Users/chris.barker/.SDKS/MacOSX10.9.sdk  # [osx]
+

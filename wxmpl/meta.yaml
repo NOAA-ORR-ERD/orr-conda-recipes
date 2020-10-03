@@ -1,42 +1,35 @@
+{% set version = "2.2.0" %}
+
 package:
   name: wxmpl
-  version: "2.0.0"
+  version: {{ version }}
 
 source:
-  fn: wxmpl-2.0.0.tar.gz
-  url: http://agni.phys.iit.edu/~kmcivor/wxmpl/downloads/wxmpl-2.0.0.tar.gz
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: wxmpl-{{ version }}.tar.gz
+  url: https://github.com/NOAA-ORR-ERD/wxmpl/archive/{{ version }}.tar.gz
+  sha256: c16b1a7b634d7d7dc0ef1060104d293ee21c63fd6b5d19e17ee63cdd887a4126
 
 build:
-  # preserve_egg_dir: True
   number: 0
+  noarch: python
+  script: pip install --no-deps --no-cache-dir ./
 
 requirements:
   build:
-    - python
-    - setuptools
+    - python <=3
+    - pip
 
   run:
-    - python
+    - python <=3
+    - numpy
     - wxpython
     - matplotlib
 
 test:
-  # Python imports
   imports:
-#   broken with recent MPL -- fix one day!    
-#    - wxmpl
-
-#  commands:
-#    - py.test
-#  requires:
-#    - pytest
-#  files:
-#    - tests/*
+    - wxmpl
 
 about:
-  home: http://agni.phys.iit.edu/~kmcivor/wxmpl/
+  home: https://github.com/NOAA-ORR-ERD/wxmpl
   license: BSD-like
   summary: 'Painless matplotlib embedding in wxPython'
