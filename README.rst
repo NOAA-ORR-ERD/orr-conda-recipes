@@ -46,9 +46,11 @@ https://anaconda.org
 conda build-all
 ---------------
 
+**NOTE:** we're really not doing this anymore -- conda-forge is handling most packages for us -- so doing them as a one-off is fine.
+
 To build all the packages, you can use Phil Elson's lovely conda-build-all tool:
 
-  conda build-all is a conda subcommand which allows multiple distributions to be built (and uploaded) in a single command. 
+  conda build-all is a conda subcommand which allows multiple distributions to be built (and uploaded) in a single command.
 
 https://github.com/SciTools/conda-build-all
 
@@ -117,10 +119,11 @@ If you have just one package to add or update, it may be easier to simply build 
   $ conda build the_package
   $ anaconda upload --user noaa-orr-erd THE_FULL_PATH_TO_THE_TARBALL_CONDA_BUILD_REPORTS
 
+
 Important Note About Building On Linux
 --------------------------------------
 
-The conda-build process sets up a PREFIX path for building an anaconda virtual
+The conda-build process sets up a PREFIX path for building an conda
 environment.  This environment is used for building and testing the built
 package in isolation, which is a reasonable thing to do.  But this PREFIX path
 is made to contain placeholder text to make it really long.

@@ -17,15 +17,14 @@ build:
 
 requirements:
   build:
-    - python {{ python }}
-    - numpy {{ numpy }}
     - {{ compiler('cxx') }}
     - cmake
-    - setuptools_scm
-    - setuptools
-    - pip
   host:
     - python
+    - pip
+    - setuptools
+    - setuptools_scm
+
   run:
     - python
     - numpy {{ numpy }}
